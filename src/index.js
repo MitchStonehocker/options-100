@@ -1,10 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// src/index.js
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import React from 'react'
+import ReactDOM from 'react-dom'
 
+import App from './App'
 
-serviceWorker.unregister();
+import { install } from '@material-ui/styles'
+install()
+
+ReactDOM.render(<App />, document.getElementById('root'))

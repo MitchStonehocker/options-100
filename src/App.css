@@ -9,17 +9,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(12px + 2vmin);
+  font-size: calc(12px + 1vmin);
   color: white;
 }
 
 .App-main {
-  background-color: #e6eeff;
+  background-color: #a1c4c7;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: top;
   font-size: calc(10px + 1vmin);
   color: black;
 }
