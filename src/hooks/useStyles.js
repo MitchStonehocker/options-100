@@ -48,8 +48,8 @@ export const useStyles = makeStyles(
       padding: theme.spacing.unit * 0,
       display: 'flex',
       flexWrap: 'wrap',
-      minWidth: 500,
-      margin: 0
+      // maxWidth: 325,
+      margin: 1
     },
     textField: {
       width: 150,

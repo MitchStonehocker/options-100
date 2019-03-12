@@ -4,7 +4,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 import { optionFlavorList, optionTypeList } from '../utilities/selectorLists'
-import { Greeks } from '../containers/Greeks'
+
+import Greeks from '../containers/Greeks'
 
 import {
   Grid,
@@ -23,7 +24,7 @@ import { useInput } from '../hooks/useInput'
 import { useSubmit } from '../hooks/useSubmit'
 import { useStyles } from '../hooks/useStyles'
 import { validations } from '../utilities/validations.js'
-import { FormInputTable } from './FormInputTable'
+// import { FormInputTable } from './FormInputTable'
 
 export default function VariableInputForm () {
   const classes = useStyles()
@@ -112,27 +113,28 @@ export default function VariableInputForm () {
     const baseURL = 'https://www.wolframcloud.com/objects/mitch/'
     const endPoint = 'options/?'
     const apiString = baseURL + endPoint + varsURL
-    // console.log(
-    //   '>>>-VariableInputForm-handleFormSuccess-apiString->',
-    //   apiString
-    // )
+    console.log(
+      '>>>-VariableInputForm-handleFormSuccess-apiString->',
+      apiString
+    )
 
     axios.get(apiString).then(res => {
-      const optionTVs = res.data.options
-      // const callOpt = optionTVs.call
-      // const putOpt = optionTVs.put
+      // console.log(
+      //   '>>>-VariableInputForm-handleFormSuccess-res.data->',
+      //   res.data
+      // )
+      const optionTVs = res.data
+      setOptionTVs(optionTVs)
       // console.log(
       //   '>>>-VariableInputForm-handleFormSuccess-optionTVs->',
       //   optionTVs
       // )
+      // const callOpt = optionTVs.call
+      // const putOpt = optionTVs.put
       // console.log('>>>-VariableInputForm-handleFormSuccess-callOpt->', callOpt)
       // console.log('>>>-VariableInputForm-handleFormSuccess-putOpt->', putOpt)
-      setOptionTVs(optionTVs)
     })
   }
-  // function handleApiSuccess (formInputs) {
-  //   console.log('>>>-Form-handleApiSuccess-formInputs->', formInputs)
-  // }
 
   const submit = useSubmit(
     [
@@ -185,7 +187,16 @@ export default function VariableInputForm () {
                   <em>None</em>
                 </MenuItem>
                 {optionFlavorList.map(optionFlavor => (
-                  <MenuItem key={optionFlavor} value={optionFlavor}>
+                  <MenuItem
+                    key={optionFlavor}
+                    value={optionFlavor}
+                    disabled={
+                      !(
+                        optionFlavor === 'American' ||
+                        optionFlavor === 'European'
+                      )
+                    }
+                  >
                     {optionFlavor}
                   </MenuItem>
                 ))}
@@ -324,15 +335,10 @@ export default function VariableInputForm () {
             >
               Submit
             </Button>
-            {/* <Typography gutterBottom variant='subtitle1'>
-              submit button
-            </Typography> */}
           </Paper>
         </Grid>
       </form>
-      {/* {optionTVs && <FormInputTable optionTVs={optionTVs} />} */}
-      {optionTVs && <Greeks greeks={optionTVs} />}
-      {formInputs && <FormInputTable formInputs={formInputs} />}
+      {optionTVs && <Greeks optionTVs={optionTVs} />}
     </div>
   )
 }

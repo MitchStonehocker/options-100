@@ -37,32 +37,44 @@ export const Greeks = ({ greeks }) => {
           </TableHead>
           <TableBody>
             <TableRow key={'tv'}>
-              <TableCell align='left'>{'TV'}</TableCell>
+              <TableCell component='th' scope='row' align='left'>
+                {'TV'}
+              </TableCell>
               <TableCell align='right'>{greeks.call.tv}</TableCell>
               <TableCell align='right'>{greeks.put.tv}</TableCell>
             </TableRow>
             <TableRow key={'Delta'}>
-              <TableCell align='left'>{'Delta'.toUpperCase()}</TableCell>
+              <TableCell component='th' scope='row' align='left'>
+                {'Delta'.toUpperCase()}
+              </TableCell>
               <TableCell align='right'>{greeks.call.Delta}</TableCell>
               <TableCell align='right'>{greeks.put.Delta}</TableCell>
             </TableRow>
             <TableRow key={'Gamma'}>
-              <TableCell align='left'>{'Gamma'}</TableCell>
+              <TableCell component='th' scope='row' align='left'>
+                {'Gamma'}
+              </TableCell>
               <TableCell align='right'>{greeks.call.Gamma}</TableCell>
               <TableCell align='right'>{greeks.put.Gamma}</TableCell>
             </TableRow>
             <TableRow key={'Theta'}>
-              <TableCell align='left'>{'Theta'}</TableCell>
+              <TableCell component='th' scope='row' align='left'>
+                {'Theta'}
+              </TableCell>
               <TableCell align='right'>{greeks.call.Theta}</TableCell>
               <TableCell align='right'>{greeks.put.Theta}</TableCell>
             </TableRow>
             <TableRow key={'Vega'}>
-              <TableCell align='left'>{'Vega'}</TableCell>
+              <TableCell component='th' scope='row' align='left'>
+                {'Vega'}
+              </TableCell>
               <TableCell align='right'>{greeks.call.Vega}</TableCell>
               <TableCell align='right'>{greeks.put.Vega}</TableCell>
             </TableRow>
             <TableRow key={'Rho'}>
-              <TableCell align='left'>{'Rho'}</TableCell>
+              <TableCell component='th' scope='row' align='left'>
+                {'Rho'}
+              </TableCell>
               <TableCell align='right'>{greeks.call.Rho}</TableCell>
               <TableCell align='right'>{greeks.put.Rho}</TableCell>
             </TableRow>
